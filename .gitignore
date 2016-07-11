@@ -1,0 +1,56 @@
+/target
+/classes
+/checkouts
+pom.xml
+pom.xml.asc
+*.jar
+*.class
+/.lein-*
+/.nrepl-port
+.hgignore
+.hg/
+
+# leiningen .gitignore defaults
+/target
+/classes
+/checkouts
+pom.xml
+pom.xml.asc
+*.jar
+*.class
+/.lein-*
+/.nrepl-port
+
+# custom from here on out
+build
+lib
+*.dot
+
+# use glob syntax.
+syntax: glob
+creds.clj
+Manifest.txt
+aws.clj
+*.ser
+*~
+*.bak
+*.off
+*.old
+.DS_Store
+*.#*
+*#*
+*.classpath
+*.project
+*.settings
+*.pyc
+docs/*
+doc
+http.log
+
+# Intellij Idea
+/*.iml
+/.idea
+
+*.swo
+*.swp
+*.swa
