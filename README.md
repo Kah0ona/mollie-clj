@@ -11,7 +11,7 @@ Add
 
 ```clojure
 [mollie-clj "0.1.0"]
-```clojure
+```
 
  to your project.clj
 
