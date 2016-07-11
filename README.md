@@ -43,7 +43,7 @@ You then want to probably do a get request to get payments with the above id:
 
 (defn my-mollie-webhook-handler
   [id]
-  (let [payment (payments/get-payment {:id id})]
+  (let [payment (payments/get-payment {:payment-id id})]
     ; do something with payment, ie. mark something as paid in your database
     ; ...
 
