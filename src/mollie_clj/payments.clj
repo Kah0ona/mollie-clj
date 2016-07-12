@@ -38,3 +38,17 @@
   (GET (str payments-url "/" payment-id "/refunds")
        {}))
 
+
+
+(comment
+
+  (mollie-clj.core/set-api-key! "test_jBMAvfTRBRGKN7hmcSGF72P4sRABjK")
+  (create-payment
+    {"amount" 100.00
+     "description" "EDUTEQ " 
+     "redirectUrl" "http://localhost/student-portal"
+     "webhookUrl"  "http://localhost/student-portal"
+     "method" "ideal"
+     "issuer" "ideal_TESTNL99"})
+
+  )

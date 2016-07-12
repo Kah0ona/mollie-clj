@@ -14,7 +14,9 @@
   [params]
   {:as :json
    :coerce :always ;also coerce when error http status is returned
-   :headers (build-headers params)})
+   :debug true 
+   :debug-body true 
+   :headers (build-headers {})})
 
 (defn throw-err
   "Throws based on mollie response.
@@ -36,7 +38,9 @@
 (defn POST 
   [url params]
   (check-config-or-throw)
-  (let [r (client/post url (build-params params))]
+  (let [r (client/post url 
+                       (-> (build-params params)
+                           (assoc :form-params params)))]
     (if (client/success? r)
       (:body r)
       (throw-err r))))
@@ -44,7 +48,8 @@
 (defn PUT
   [url params]
   (check-config-or-throw)
-  (let [r (client/put url (build-params params))]
+  (let [r (client/put url (-> (build-params params)
+                              (assoc :form-params params)))]
     (if (client/success? r)
       (:body r)
       (throw-err r))))
@@ -58,6 +63,9 @@
       (throw-err r))))
 
 (comment
+
+
+
   (clojure.pprint/pprint
     (client/get "http://google.com")))
 
