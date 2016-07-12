@@ -8,9 +8,11 @@ things simple.
 ## Usage
 
 Add 
+
 ```clojure
 [mollie-clj "0.1.0"]
-```clojure
+```
+
  to your project.clj
 
 The function calls mimic the methods described in the Mollie documentation. And since in clojure we work with data preferably,
@@ -23,11 +25,13 @@ Then, if you have a Ring app you need to configure routes to handle the callback
 is called the webhook in Mollie terminology. They push info to an url that you configure in your Mollie profile. 
 
 Example route for the callback can be like this:
+
 ```clojure
 (POST "/mollie-callback" [payment-id] (my-mollie-webhook-handler payment-id))
 ```
 
 You then want to probably do a get request to get payments with the above id:
+
 ```clojure
 (ns my-app.my-namespace
   (:require 
@@ -39,7 +43,7 @@ You then want to probably do a get request to get payments with the above id:
 
 (defn my-mollie-webhook-handler
   [id]
-  (let [payment (payments/get-payment {:id id})]
+  (let [payment (payments/get-payment {:payment-id id})]
     ; do something with payment, ie. mark something as paid in your database
     ; ...
 
