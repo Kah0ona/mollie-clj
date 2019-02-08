@@ -1,6 +1,6 @@
 (ns mollie-clj.payments
-  (:require 
-    [mollie-clj.http :refer [GET POST PUT DELETE]] 
+  (:require
+    [mollie-clj.http :refer [GET POST PUT DELETE]]
     [mollie-clj.core :refer [base-url]]
     [mollie-clj.config :refer [check-config-or-throw api-key]]))
 
@@ -20,7 +20,7 @@
 
 (defn create-payment-refund
   [{:keys [id amount] :as params}]
-  (POST 
+  (POST
     (str payments-url "/" id "/refunds")
     params))
 
@@ -32,23 +32,8 @@
 (defn cancel-payment-refund
   [{:keys [payment-id refund-id] :as params}]
   (DELETE (str payments-url "/" payment-id "/refunds/" refund-id) {}))
-  
+
 (defn list-payment-refunds
   [{:keys [payment-id]}]
   (GET (str payments-url "/" payment-id "/refunds")
        {}))
-
-
-
-(comment
-
-  (mollie-clj.core/set-api-key! "test_jBMAvfTRBRGKN7hmcSGF72P4sRABjK")
-  (create-payment
-    {"amount" 100.00
-     "description" "EDUTEQ " 
-     "redirectUrl" "http://localhost/student-portal"
-     "webhookUrl"  "http://localhost/student-portal"
-     "method" "ideal"
-     "issuer" "ideal_TESTNL99"})
-
-  )

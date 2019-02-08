@@ -1,6 +1,6 @@
 (ns mollie-clj.issuers
-  (:require 
-    [mollie-clj.http :refer [GET POST PUT DELETE]] 
+  (:require
+    [mollie-clj.http :refer [GET POST PUT DELETE]]
     [mollie-clj.core :refer [base-url]]
     [mollie-clj.config :refer [check-config-or-throw api-key]]))
 
@@ -13,4 +13,3 @@
 (defn list-issuers
   []
   (GET issuers-url {}))
-

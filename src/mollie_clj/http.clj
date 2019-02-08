@@ -14,8 +14,8 @@
   [params]
   {:as :json
    :coerce :always ;also coerce when error http status is returned
-   :debug true 
-   :debug-body true 
+   :debug false 
+   :debug-body false 
    :headers (build-headers {})})
 
 (defn throw-err
